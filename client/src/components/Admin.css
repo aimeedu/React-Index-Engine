@@ -1,0 +1,43 @@
+div {
+    text-align: center;
+}
+
+h3, li {
+    text-align: center;
+    color: #ffbf67;
+}
+
+#admin {
+    /*float: right;*/
+    /*font-size: large;*/
+    /*color: #ffbf67;*/
+    /*border: #ffbf67 2px solid;*/
+    /*border-radius: 10px;*/
+    padding: 6px 25px;
+    background-color: mediumpurple;
+    color: lavenderblush;
+    border: 1px solid mediumpurple;
+}
+
+#admin:hover {
+    background-color: #f8f9fa;
+    /*border: mediumpurple 2px solid;*/
+    color: darkslateblue;
+    border: 1px solid #f8f9fa;
+}
+
+table {
+    margin: auto;
+    background: rgba(147, 157, 255, 0.3);
+    /*border: #ffbf67 1px solid;*/
+    border-radius: 15px;
+}
+th, td {
+    text-align: center;
+    /*border: #ffbf67 1px solid;*/
+    /*border-bottom: #ffbf67 1px solid;*/
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin: 10px;
+    color: #ffbf67;
+}

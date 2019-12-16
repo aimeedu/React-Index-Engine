@@ -1,0 +1,28 @@
+
+body {
+  background-image: url("img/snow2.jpg"), url("img/sky1.jpg");
+  background-color: #172240;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+
+/*.App-header {*/
+/*  !*background-color: darkseagreen;*!*/
+/*  min-height: 100vh;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*}*/
+
+
+/*Change the background color of the <body> element to "lightblue" when the browser window is 600px wide or less:*/
+@media only screen and (max-width: 600px) {
+  body {
+    background-image: url("img/mb3.jpg"), url("img/mb2.jpg");
+    background-color: #172240;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
+}
