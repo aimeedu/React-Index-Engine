@@ -11,16 +11,6 @@ const crawler = require('./WebScape');
 
 let path = require('path');
 
-if (process.env.NODE_ENV === 'production'){
-
-    app.use(express.static('client/build'));
-
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-    });
-
-}
-
 
 // process is a global object. Heroku will set port for you.
 const port = process.env.PORT || 5000;
@@ -41,7 +31,7 @@ app.use(
     }));
 
 // const uri = process.env.ATLAS_URI;
-mongoose.connect("mongodb+srv://aimeedu:aimeedu@cluster0-1n0aq.gcp.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://aimeedu:aimeedu@cluster0-1n0aq.gcp.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -55,6 +45,19 @@ const pageRouter = require('./routes/page');
 /** go to /custom, load methods in searchRouter */
 app.use('/custom', searchRouter);
 app.use('/admin', pageRouter);
+
+
+if (process.env.NODE_ENV === 'production'){
+
+    app.use(express.static('client/build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    });
+
+}
+
+
 
 /** call the crawler, should call it in post routes */
 // crawler.handleInitialScraping("https://www.pizzahut.com/", 2);
