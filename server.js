@@ -9,6 +9,8 @@ const bodyParser = require('body-parser')
 
 const crawler = require('./WebScape');
 
+let path = require('path');
+
 if (process.env.NODE_ENV === 'production'){
 
     app.use(express.static('client/build'));
