@@ -24,8 +24,8 @@ class Admin extends Component {
         this.setState({
             results
         }) */
-        // below is for mongodb get search result.
-        axios.get('http://localhost:5000/custom')
+        // below is for mongodb get search result, 'http://localhost:5000/custom'.
+        axios.get('/custom')
             .then(res => {
                 this.setState({
                     SearchData: res.data
@@ -35,8 +35,8 @@ class Admin extends Component {
     }
 
     fetchIndexingHistories = async () => {
-        // below is for mongodb get search result.
-        axios.get('http://localhost:5000/admin')
+        // below is for mongodb get search result.,'http://localhost:5000/admin'
+        axios.get('/admin')
             .then(res => {
                 this.setState({
                     IndexingData: res.data
@@ -52,7 +52,7 @@ class Admin extends Component {
         // console.log(inputURL);
 
         /** pass this url to the post function.*/
-        axios.post('http://localhost:5000/admin', {inputURL})
+        axios.post('/admin', {inputURL})
             .then((res)=>{
                 console.log(res.data);
                 console.log('Indexing Successfully! Data inserted in DB!');

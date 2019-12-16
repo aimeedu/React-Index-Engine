@@ -26,14 +26,14 @@ class SearchEngine extends Component {
             term
         })
         // console.log(term);
-
-        const api_call = await fetch(`http://localhost:5000/admin/${term}`);
+        //     `http://localhost:5000/admin/${term}`
+        const api_call = await fetch(`/admin/${term}`);
         const data = await api_call.json();
         const searchFreq = data.length;
         console.log(searchFreq);
 
-        /** send the term to back end */
-        axios.post('http://localhost:5000/custom', {term:term, searchFreq:searchFreq})
+        /** send the term to back end 'http://localhost:5000/custom'*/
+        axios.post('/custom', {term:term, searchFreq:searchFreq})
             .then((res)=>{
                 console.log(res.data);
                 // console.log('Pass term to back end!');
