@@ -24,8 +24,8 @@ if (process.env.NODE_ENV === 'production'){
 const port = process.env.PORT || 5000;
 //cors: cross origin resource sharing, allowed ajax request access resource from remote host.
 const cors = require('cors');
-//dotenv: load environment variables form a .env file
-require('dotenv').config();
+// dotenv: load environment variables file
+// require('dotenv').config();
 
 // middleware
 app.use(cors());
@@ -38,8 +38,8 @@ app.use(
         extended: true,
     }));
 
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
+// const uri = process.env.ATLAS_URI;
+mongoose.connect("mongodb+srv://aimeedu:aimeedu@cluster0-1n0aq.gcp.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
 const connection = mongoose.connection;
 connection.once('open', () => {
