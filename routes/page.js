@@ -4,7 +4,23 @@ const crawler = require('../WebScape');
 // Page.index({ wordname: 'text' });
 
 router.route('/').get((req, res) => {
-    Page.find()
+    // const dist = Page.distinct('url');
+    // Page.runCommand( { distinct: "Page", key: "url" } )
+
+    // Page.find({
+    //     url: {
+    //         $in: dist
+    //     }
+    // })
+
+    Page.aggregate( [ { $group : {
+            _id : "$url",
+            // url: { $first: "url" },
+            title: { $first: "$title" },
+            description: { $first: "$description" },
+            createdAt: { $first: "$createdAt" },
+            timeToIndex: { $first: "$timeToIndex" },
+    } } ] )
         .then(page => res.json(page))
         .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -54,8 +70,8 @@ router.route('/:wordname').get((req, res) => {
 /** call the crawler, should call it in post routes */
 router.route('/').post((req, res) => {
     const url = req.body.inputURL;
-
-    crawler.handleInitialScraping(url, 3);
+    const depth = req.body.inputDepth;
+    crawler.handleInitialScraping(url, depth);
     /** crawler should return all the title, description, wordname and so on. */
 
     // const title = req.body.title;

@@ -49,10 +49,14 @@ class Admin extends Component {
         e.preventDefault();
         // get the user input url
         const inputURL = e.target.elements.userInput.value;
-        // console.log(inputURL);
-
+        let inputDepth = e.target.elements.userDepth.value;
+        if (!inputDepth) {
+            inputDepth = 2;
+        }
+        console.log(inputURL);
+        console.log(inputDepth);
         /** pass this url to the post function.*/
-        axios.post('/admin', {inputURL})
+        axios.post('/admin', {inputURL, inputDepth})
             .then((res)=>{
                 console.log(res.data);
                 console.log('Indexing Successfully! Data inserted in DB!');
@@ -81,7 +85,7 @@ class Admin extends Component {
             return(
                 <tr key={i}>
                     <td>{IndexingData._id}</td>
-                    <td>{IndexingData.url}</td>
+                    {/*<td>{IndexingData.url}</td>*/}
                     <td>{IndexingData.title}</td>
                     <td>{IndexingData.description}</td>
                     <td>{IndexingData.createdAt}</td>
@@ -93,9 +97,18 @@ class Admin extends Component {
             <div>
                 <h2>Indexing Launcher</h2>
                 <h3>{this.state.isIndexed?`Data inserted into DB! Indexing Count: ${this.state.count}`:null}</h3>
-                <Form className="search" onSubmit={this.indexing}>
-                    <FormControl className="mr-sm-1 searchBar" type="url" placeholder="Type a URL to be indexed." name="userInput"/>
-                    <Button id="searchBtn" variant="btn btn-light purple-btn" type="submit">Search</Button>
+                {/*<Form className="search" onSubmit={this.indexing}>*/}
+                {/*    <FormControl className="mr-sm-1 searchBar" type="url" placeholder="Type a URL to be indexed." name="userInput"/>*/}
+                {/*    <FormControl className="mr-sm-1" type="number" placeholder="Depth." name="userDepth"/>*/}
+                {/*    <Button id="searchBtn" variant="btn btn-light purple-btn" type="submit">Index</Button>*/}
+                {/*</Form>*/}
+
+                <Form className="input-group mb-4 search" onSubmit={this.indexing}>
+                    <FormControl type="text" className="form-control" type="url" placeholder="Type a URL to be indexed." name="userInput"/>
+                    <FormControl type="text" className="form-control col-3" type="number" placeholder="Input Depth." name="userDepth"/>
+                        <div className="input-group-append">
+                            <Button id="searchBtn" variant="btn btn-light purple-btn" type="submit">Index</Button>
+                        </div>
                 </Form>
 
                 <br/><br/>
@@ -121,7 +134,7 @@ class Admin extends Component {
                 <table className="">
                     <thead>
                     <tr>
-                        <th>Indexing ID</th>
+                        {/*<th>Indexing ID</th>*/}
                         <th>URL</th>
                         <th>Title</th>
                         <th>Description</th>

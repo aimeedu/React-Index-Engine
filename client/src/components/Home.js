@@ -6,7 +6,7 @@ const style = {
 const Home = () => {
     return (
         <div style={style}>
-            <h2>Phase 3 in progress....</h2>
+            <h2>Phase 1, 2, 3 Completed.</h2>
             <h2>This is my home page for CS 355 !</h2>
         </div>
     )

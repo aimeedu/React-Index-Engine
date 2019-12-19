@@ -78,7 +78,7 @@ h5 a:hover {
 .search, .downloadFile {
     /*text-align: center;*/
     margin: auto;
-    width: 53%;
+    width: 57%;
     display: flex;
     flex-wrap: wrap;
     padding: 5px;
