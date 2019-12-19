@@ -30,7 +30,7 @@ class Admin extends Component {
                 this.setState({
                     SearchData: res.data
                 })
-                console.log(res.data);
+                // console.log(res.data);
             })
     }
 
@@ -41,7 +41,7 @@ class Admin extends Component {
                 this.setState({
                     IndexingData: res.data
                 })
-                console.log(res.data);
+                // console.log(res.data);
             })
     }
 
@@ -57,10 +57,16 @@ class Admin extends Component {
         console.log(inputDepth);
         /** pass this url to the post function.*/
         axios.post('/admin', {inputURL, inputDepth})
-            .then((res)=>{
-                console.log(res.data);
-                console.log('Indexing Successfully! Data inserted in DB!');
+            // .then((res)=>{
+            //     console.log(res.data);
+            //     console.log('Indexing Successfully! Data inserted in DB!');
+            // })
+            .then(response => {
+                console.log(response)
             })
+            .catch(error => {
+                console.log(error.response)
+            });
         this.setState({
             isIndexed: true,
             count: this.state.count+1
