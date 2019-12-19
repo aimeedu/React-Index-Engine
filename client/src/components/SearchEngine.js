@@ -24,15 +24,38 @@ class SearchEngine extends Component {
         const username = e.target.elements.userInput.value;
         this.setState({
             term
-        })
-        // console.log(term);
-        //     `http://localhost:5000/admin/${term}`
-        const api_call = await fetch(`/admin/${term}`);
-        const data = await api_call.json();
-        const searchFreq = data.length;
-        console.log(searchFreq);
+        });
 
-        /** send the term to back end 'http://localhost:5000/custom'*/
+        let searchFreq, data;
+
+        if (this.state.caseInsensitive && this.state.partialMatch){
+            console.log("this.state.caseInsensitive && this.state.partialMatch");
+        }
+
+        else if (this.state.caseInsensitive) {
+            console.log("this.state.caseInsensitive ");
+            const api_call = await fetch(`/admin/case/${term}`);
+            data = await api_call.json();
+            searchFreq = data.length;
+            console.log(searchFreq);
+        }
+
+        else if(this.state.partialMatch) {
+            const api_call = await fetch(`/admin/p/${term}`);
+            data = await api_call.json();
+            searchFreq = data.length;
+            console.log(searchFreq);
+        }
+
+        else {
+            //`http://localhost:5000/admin/${term}`
+            const api_call = await fetch(`/admin/${term}`);
+            data = await api_call.json();
+            searchFreq = data.length;
+            console.log(searchFreq);
+        }
+
+        /** send the term to back end 'http://localhost:5000/custom', add into db. */
         axios.post('/custom', {term:term, searchFreq:searchFreq})
             .then((res)=>{
                 console.log(res.data);
@@ -86,7 +109,7 @@ class SearchEngine extends Component {
 
                 <div className="checkbox">
                     <label><input type="checkbox" name="case" onChange={this.checkCase}/> Case Insensitive </label>
-                    <label><input type="checkbox" name="match" onChange={this.checkMatch}/> Allow Partial Match </label>
+                    {/*<label><input type="checkbox" name="match" onChange={this.checkMatch}/> Allow Partial Match </label>*/}
                 </div>
 
 
@@ -116,7 +139,7 @@ class SearchEngine extends Component {
                                     <div className="box">
                                         <input data-index={i} id="ch" className="checkbox" type="checkbox" name="check" onChange={this.checkBox}/>
                                         {/*<button className="btn btn-outline-primary" data-index={i} onClick={this.delete}> Delete </button>*/}
-                                        <h4>{data.wordname}</h4>
+                                        <h4>Word Name: {data.wordname}</h4>
                                         <h4>Title: {data.title}</h4>
                                         <h4>Description: {data.description}</h4>
                                         <h5><a href={data.url}>{data.url}</a></h5>
