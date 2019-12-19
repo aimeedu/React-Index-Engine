@@ -110,8 +110,8 @@ class Admin extends Component {
                 {/*</Form>*/}
 
                 <Form className="input-group mb-4 search" onSubmit={this.indexing}>
-                    <FormControl type="text" className="form-control" type="url" placeholder="Type a URL to be indexed." name="userInput"/>
-                    <FormControl type="text" className="form-control col-3" type="number" placeholder="Input Depth." name="userDepth"/>
+                    <FormControl className="form-control" type="url" placeholder="Type a URL to be indexed." name="userInput"/>
+                    <FormControl className="form-control col-3" type="number" placeholder="Input Depth." name="userDepth"/>
                         <div className="input-group-append">
                             <Button id="searchBtn" variant="btn btn-light purple-btn" type="submit">Index</Button>
                         </div>
