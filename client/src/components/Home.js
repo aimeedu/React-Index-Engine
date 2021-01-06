@@ -14,7 +14,7 @@ const Home = () => {
             <ul id="homelist">
                 
                 <h4>Instructions:</h4>
-                <li>Click on 'Indexing Luncher', where you can input a web page to index all the words from that page.</li>
+                <li>Click on 'Indexing Luncher', then you can input a web page to index all the words from that page.</li>
                 <li>Click on 'Custom Search Engine' to search the words in the database you have priviously idexed.</li>
                 <br/>
                 Dropdown Menus: 
