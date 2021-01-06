@@ -1,3 +1,17 @@
+#homelist{
+    text-align: left;
+    color: #ffbf67;
+    /* color: lavender; */
+}
+#home {
+    text-align: center;
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+  }
+
 #ch {
     align-self: end;
 }

@@ -17,13 +17,6 @@ const MyNavbar = (props) => {
                         <Nav.Link>Home</Nav.Link>
                     </LinkContainer>
 
-                    <NavDropdown title="Course" id="course-dropdown">
-                        <NavDropdown.Item href="https://www.zybooks.com">Zybooks</NavDropdown.Item>
-                        <NavDropdown.Item href="https://tophat.com">TopHat</NavDropdown.Item>
-                        <NavDropdown.Item href="https://www.google.com/drive/">Google Drive</NavDropdown.Item>
-                        <NavDropdown.Item href="https://www.w3schools.com">W3Schools</NavDropdown.Item>
-                    </NavDropdown>
-
                     <NavDropdown title="Search" id="search-dropdown">
                         <LinkContainer to="/file">
                             <NavDropdown.Item>Search From A File</NavDropdown.Item>
@@ -40,14 +33,8 @@ const MyNavbar = (props) => {
                         <LinkContainer to="/browser/navigator">
                             <NavDropdown.Item>Navigator</NavDropdown.Item>
                         </LinkContainer>
-                        <LinkContainer to="/browser/window">
-                            <NavDropdown.Item>Window</NavDropdown.Item>
-                        </LinkContainer>
                         <LinkContainer to="/browser/screen">
                             <NavDropdown.Item>Screen</NavDropdown.Item>
-                        </LinkContainer>
-                        <LinkContainer to="/browser/location">
-                            <NavDropdown.Item>Location</NavDropdown.Item>
                         </LinkContainer>
                         <LinkContainer to="/browser/geolocation">
                             <NavDropdown.Item>Geolocation</NavDropdown.Item>
@@ -64,12 +51,13 @@ const MyNavbar = (props) => {
                     </NavDropdown>
 
                 </Nav>
-                {/*<Form inline>*/}
-                {/*    <FormControl type="text" placeholder="Search" className="mr-sm-2" />*/}
-                {/*    <Button variant="outline-success">Search</Button>*/}
-                {/*</Form>*/}
+
                 <LinkContainer to="/admin" className="btn btn--outline-light" id="admin">
-                    <Nav.Link>Admin</Nav.Link>
+                    <Nav.Link>Indexing Launcher</Nav.Link>
+                </LinkContainer>
+                
+                <LinkContainer to="/custom" className="btn btn--outline-light" id="admin">
+                    <Nav.Link>Custom Search Engine</Nav.Link>
                 </LinkContainer>
             </Navbar.Collapse>
         </Navbar>

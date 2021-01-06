@@ -2,7 +2,7 @@ div {
     text-align: center;
 }
 
-h3, li {
+h3{
     text-align: center;
     color: #ffbf67;
 }
@@ -13,10 +13,11 @@ h3, li {
     /*color: #ffbf67;*/
     /*border: #ffbf67 2px solid;*/
     /*border-radius: 10px;*/
+    margin-left: 5px;
     padding: 6px 25px;
-    background-color: mediumpurple;
+    background-color: rgba(112, 112, 255, 0.5);
     color: lavenderblush;
-    border: 1px solid mediumpurple;
+    /* border: 1p black; */
 }
 
 #admin:hover {

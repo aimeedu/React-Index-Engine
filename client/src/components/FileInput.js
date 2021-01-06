@@ -117,6 +117,7 @@ class FileInput extends React.Component {
         return (
             <div className="level1">
                 <h2>File Upload</h2>
+                <h5 style={{textAlign: 'center'}}>* Support files in .xml, .json, .csv formats.</h5>
                 <input className="btn btn-outline-light search" type="file" accept=".xml,.json,.csv" onChange={this.showFile}/>
                 {/*passing data as a property to child class*/}
                 <Download data={this.state.data}/>

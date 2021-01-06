@@ -1,13 +1,29 @@
 import React from 'react';
-const style = {
-    marginTop: '200px',
-}
+import './Components.css';
+
+// const style = {
+//     marginTop: '200px',
+//     width: '18rem'
+// }
 
 const Home = () => {
     return (
-        <div style={style}>
-            <h2>Phase 1, 2, 3 Completed.</h2>
-            <h2>This is my home page for CS 355 !</h2>
+        <div id="home" class="card">
+            <h2>Welcome to the Home Page!</h2>
+        
+            <ul id="homelist">
+                
+                <h4>Instructions:</h4>
+                <li>Click on 'Indexing Luncher', where you can input a web page to index all the words from that page.</li>
+                <li>Click on 'Custom Search Engine' to search the words in the database you have priviously idexed.</li>
+                <br/>
+                Dropdown Menus: 
+                <li>Search: Search from file or search from google.</li>
+                <li>Browser: Display your browser sepcification. </li>
+                <li>Geolocation: Displays your current latitude and longitude.</li>
+                <li>About: Developer's names and you can contact us by email.</li>
+            </ul>
+        
         </div>
     )
 }
